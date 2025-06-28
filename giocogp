@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chi è? Il gioco del Re del Barrio</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #1e1e2f; color: white; text-align: center; padding: 50px; }
+    .box { background: #2d2d44; padding: 20px; border-radius: 10px; max-width: 500px; margin: auto; }
+    button { background-color: #5c6bc0; color: white; border: none; padding: 10px 20px; margin: 10px; cursor: pointer; border-radius: 5px; }
+    button:hover { background-color: #7986cb; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>🧞 Chi è? Il gioco del Re del Barrio</h1>
+    <p id="question">Pronto a scoprire chi è il rosso più fresco di Pitelli?</p>
+    <div id="answers">
+      <button onclick="nextQuestion('yes')">Sì</button>
+      <button onclick="nextQuestion('no')">No</button>
+      <button onclick="nextQuestion('idk')">Non so</button>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      "È una persona alta meno di 1.60?",
+      "Beve con Sed a Pitelli?",
+      "Ha i capelli rossi?",
+      "Ama indossare gioielli?",
+      "È il re delle vibes?",
+      "Vive a Pitelli?",
+      "È famoso nel gruppo per essere un disturbatore seriale?"
+    ];
+    let index = 0;
+
+    function nextQuestion(response) {
+      index++;
+      if (index < questions.length) {
+        document.getElementById("question").innerText = questions[index];
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      document.getElementById("question").innerHTML = "Stavi pensando a... <strong>REBO</strong> 🔥<br>Il rosso più fresco e figo del Barrio di Spezia!";
+      document.getElementById("answers").style.display = "none";
+    }
+  </script>
+</body>
+</html>
